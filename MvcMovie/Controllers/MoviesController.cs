@@ -136,6 +136,11 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
+
+
+        //add the ActionName("Delete") attribute to the DeleteConfirmed method. 
+        //This effectively performs mapping for the routing system so that a URL that includes /Delete/ for a POST request will find the DeleteConfirmed method.
+
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -155,5 +160,20 @@ namespace MvcMovie.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //Another common way to avoid a problem with methods that have identical names and signatures is to artificially change the signature of the POST method to include an unused parameter.For example, 
+        //some developers add a parameter type FormCollection that is passed to the POST method, and then simply don't use the parameter:.
+
+        //public ActionResult Delete(FormCollection fcNotUsed, int id = 0)
+        //{
+        //    Movie movie = db.Movies.Find(id);
+        //    if (movie == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    db.Movies.Remove(movie);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
     }
 }
