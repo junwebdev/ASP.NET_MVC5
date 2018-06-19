@@ -1,0 +1,7 @@
+namespace pluralsight_PatientData.Areas.HelpPage.ModelDescriptions
+{
+    public class CollectionModelDescription : ModelDescription
+    {
+        public ModelDescription ElementDescription { get; set; }
+    }
+}
